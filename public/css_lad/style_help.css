@@ -19,7 +19,6 @@ body {
         top: 68px;
         display:block;
         width: 94%;
-        height: 520px;
         padding-bottom:5px;
 	    background: palegreen;
         font-size: 12px;
@@ -29,7 +28,7 @@ body {
 	.divRow2 {
         position: fixed;
         left: 3%;
-        top: 603px;
+        bottom: 20px;
         display:block;
         width: 94%;
         height: 24px;
