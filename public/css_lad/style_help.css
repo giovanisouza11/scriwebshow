@@ -41,7 +41,7 @@ body {
     .rodape {
         position: fixed;
 	    left: 3%;
-        bottons: 0px;
+        bottom: 0px;
         width: 94%;
 	    height: 18px;
 	    margin: 0 auto;
