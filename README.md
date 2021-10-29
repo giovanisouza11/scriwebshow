@@ -9,4 +9,4 @@ scriwebshow.herokuapp.com
 Observação
 Para ver modelos deve-se baixar o diretório SCRIWEB.
 
-Contato: giovani@engenial.com.br
+Contato: giovanibatistasouza@gmail.com
