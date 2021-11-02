@@ -1,4 +1,4 @@
-# scriweb
+# scriweb Show
 Supervisório e Ladder Simulador
 Simulador de ladder com simulador industrial.
 Aplicativo disponível em:
