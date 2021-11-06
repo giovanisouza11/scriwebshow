@@ -107,6 +107,14 @@ body {
 	left: 0px;
 	text-align: left;
 }
+.classIHM {
+	position: fixed;
+       	width: 640px;
+	height: 550px;
+       	top: 650px;
+	left: 0px;
+	text-align: left;
+}
 .classLadder {
 	display: block;
 	position: fixed;
