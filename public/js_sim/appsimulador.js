@@ -117,7 +117,7 @@ function eInputS(event) {
 			Sim_Escreve_CT(ArrayObjStatic[variavel*20+1],0,0);
 
 		ICampo.style.left = "10px";
-		ICampo.style.top = "700px";
+		ICampo.style.top = "1100px";
 		CInput.blur();
 		ICampo.style.display = "none";
 	}
@@ -228,166 +228,170 @@ function ApagaImagem(index) {
 function Desenha_Ihm_Sim() {
 	var tamanho_array = 0;
 	var tipo_funcao = ['I','Q','M','T','C','R'];
-	var linha = 510;
-	Sim_Context.fillStyle = 'white';
-  	Sim_Context.fillRect(10, 500, 550, 25);
-  	Sim_Context.font = '18pt Arial';
-  	Sim_Context.fillStyle = 'red';
-	Sim_Context.fillText(num_clp, 10, 515);
-	Sim_Context.fillStyle = 'black';
-  	Sim_Context.font = '9pt Arial';
+	var linha = 60;
+	Ihm_Context.lineWidth = 2;
+	Ihm_Context.fillStyle = 'white';
+  	Ihm_Context.fillRect(0, 0, 650,700);
+  	Ihm_Context.fillStyle = 'black';
+  	Ihm_Context.strokeRect(1, 1, 650, 700);
+  	Ihm_Context.font = '18pt Arial';
+  	Ihm_Context.fillStyle = 'red';
+	Ihm_Context.fillText('Mapa de Memória', 220, 30);
+	//Ihm_Context.fillText(num_clp, 10, 10);
+	Ihm_Context.fillStyle = 'black';
+  	Ihm_Context.font = '14pt Arial';
   	var num_linhas;
-  	var funcao = 3;
-	switch (parseInt(funcao)){
+  	for(var funcao = 0; funcao < 6; funcao++)
+	{
+	    	switch (parseInt(funcao)){
       		case 0:
-        		Sim_Context.fillStyle = 'black';
-        		Sim_Context.fillRect(280, linha-5, 60, 5);
-        		Sim_Context.fillText('ENTRADAS', 280, linha);
-        		tamanho_array = I.length;
+        		Ihm_Context.fillStyle = 'black';
+        		Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillText('ENTRADAS', 270, linha);
+        		Ihm_Context.fillRect(500, linha-5, 150, 5);
+			tamanho_array = I.length;
         		num_linhas = parseInt(tamanho_array / 16);
-        		linha = linha + 15;
-        		Sim_Context.fillText('MSB', 280,linha);
-        		Sim_Context.fillText('Decimal', 530,linha);
-			linha = linha + 15;
+        		linha = linha + 30;
+        		Ihm_Context.fillText('MSB', 10,linha);
+			Ihm_Context.fillText('Valor binário', 250,linha);
+        		Ihm_Context.fillText('LSB  -  Decimal', 500,linha);
+			linha = linha + 25;
         		break;
       		case 1:
-        		Sim_Context.fillStyle = 'black';
-        		Sim_Context.fillRect(280, linha-5, 60, 5);
-        		Sim_Context.fillText('SAIDAS', 280, linha);
-        		tamanho_array = Q.length;
+        		Ihm_Context.fillStyle = 'black';
+        		Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillText('SAIDAS',290, linha);
+        		Ihm_Context.fillRect(500, linha-5, 150, 5);
+			tamanho_array = Q.length;
         		num_linhas = parseInt(tamanho_array / 16);
-        		linha = linha + 15;
-        		Sim_Context.fillText('MSB', 280,linha);
-        		Sim_Context.fillText('Decimal',530,linha);
-        		linha = linha + 15;
+        		linha = linha + 30;
+        		Ihm_Context.fillText('MSB', 10,linha);
+        		Ihm_Context.fillText('Valor binário', 250,linha);
+        		Ihm_Context.fillText('LSB  -  Decimal',500,linha);
+        		linha = linha + 30;
         		break;
       		 case 2:
-        		Sim_Context.fillStyle = 'black';
-        		Sim_Context.fillRect(790, linha-5, 60, 5);
-        		Sim_Context.fillText('MEMÓRIAS', 870, linha);
-        		Sim_Context.fillRect(955, linha-5, 60, 5);
-        		Sim_Context.fillRect(1025, linha-5, 60, 5);
+        		Ihm_Context.fillStyle = 'black';
+        		Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillText('MEMÓRIAS', 270, linha);
+        		Ihm_Context.fillRect(500, linha-5, 150, 5);
         		tamanho_array = M.length;
         		num_linhas = parseInt(tamanho_array / 16);
-        		linha = linha + 15;
-        		Sim_Context.fillText('MSB', 790,linha);
-        		Sim_Context.fillText('Valor binário', 870,linha);
-        		Sim_Context.fillText('LSB', 990,linha);
-        		Sim_Context.fillText('Decimal', 1035,linha);
-        		linha = linha + 15;
+        		linha = linha + 30;
+        		Ihm_Context.fillText('MSB', 10,linha);
+        		Ihm_Context.fillText('Valor binário', 250,linha);
+        		Ihm_Context.fillText('LSB  -  Decimal', 500,linha);
+        		
+        		linha = linha + 30;
         		break;
 		case 3:
-        		Sim_Context.fillStyle = 'black';
-        		Sim_Context.fillText('TIMERS', 20, linha);
-       			tamanho_array = T.length;
+        		Ihm_Context.fillStyle = 'black';
+                        Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillText('TIMERS', 290, linha);
+       			Ihm_Context.fillRect(500, linha-5, 150, 5);
+			tamanho_array = T.length;
         		num_linhas = parseInt(tamanho_array / 9);
-        		Sim_Context.fillText('Tem', 70,linha);
-        		Sim_Context.fillText('bit', 100,linha);
-        		Sim_Context.fillText('PV', 130,linha);
-        		Sim_Context.fillText('SP', 160,linha);
-        		break;
+                        linha = linha + 30;
+        		Ihm_Context.fillText('Tem', 100,linha);
+        		Ihm_Context.fillText('bit', 200,linha);
+        		Ihm_Context.fillText('PV', 300,linha);
+        		Ihm_Context.fillText('SP', 400,linha);
+        		linha = linha + 30;
+                        break;
 		case 4:
-        		Sim_Context.fillStyle = 'black';
-        		Sim_Context.fillRect(790, linha-5, 60, 5);
-        		Sim_Context.fillText('CONTADORES', 860, linha);
-        		Sim_Context.fillRect(955, linha-5, 60, 5);
+        		Ihm_Context.fillStyle = 'black';
+        		Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillText('CONTADORES', 265, linha);
+        		Ihm_Context.fillRect(500, linha-5, 150, 5);
         		tamanho_array = C.length;
         		num_linhas = parseInt(tamanho_array / 4);
-        		linha = linha + 15;
-        		Sim_Context.fillText('Cont', 790,linha);
-        		Sim_Context.fillText('bit', 845,linha);
-        		Sim_Context.fillText('PV', 895,linha);
-        		Sim_Context.fillText('SP', 945,linha);
-        		Sim_Context.fillText('AUX', 990,linha);
-        		linha = linha + 15;
+        		linha = linha + 30;
+        		Ihm_Context.fillText('Cont', 100,linha);
+        		Ihm_Context.fillText('bit', 200,linha);
+        		Ihm_Context.fillText('PV', 300,linha);
+        		Ihm_Context.fillText('SP', 400,linha);
+        		Ihm_Context.fillText('AUX', 500,linha);
+        		linha = linha + 30;
         		break;
       		case 5:
-        		Sim_Context.fillStyle = 'black';
-        		Sim_Context.fillRect(790, linha-5, 60, 5);
-        		Sim_Context.fillText('RAMAIS', 880, linha);
-        		Sim_Context.fillRect(955, linha-5, 60, 5);
+        		Ihm_Context.fillStyle = 'black';
+        		Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillText('RAMAIS', 290, linha);
+        		Ihm_Context.fillRect(500, linha-5, 150, 5);
         		tamanho_array = R.length;
         		num_linhas = parseInt(tamanho_array / 16);
-        		linha = linha + 15;
-        		Sim_Context.fillText('MSB', 790,linha);
-        		Sim_Context.fillText('Valor binário', 870,linha);
-        		Sim_Context.fillText('LSB', 990,linha);
-        		linha = linha + 15;
+        		linha = linha + 30;
+        		Ihm_Context.fillText('MSB', 10,linha);
+        		Ihm_Context.fillText('Valor binário', 250,linha);
+        		Ihm_Context.fillText('LSB', 500,linha);
+        		linha = linha + 30;
         		break;
 		default:
         		tamanho_array = 1;
-    	}
-    	var posicao;
-    	var n_posicao;
-	for (var n_linhas=0; n_linhas <= num_linhas; n_linhas++) {
+    	   	}
+    	   	var posicao;
+    	   	var n_posicao;
+	   	for (var n_linhas=0; n_linhas <= num_linhas; n_linhas++) {
       			posicao = 0;
-      			Sim_Context.fillStyle = 'green';
+      			Ihm_Context.fillStyle = 'green';
       			if (n_linhas < num_linhas){
         			if (funcao <3){
-        				Sim_Context.fillText(tipo_funcao[funcao]+n_linhas+'.15', 280,linha);
+        				Ihm_Context.fillText(tipo_funcao[funcao]+n_linhas+'.15', 10,linha);
         				n_posicao = (n_linhas * 16) + posicao;
         			}
         			if (funcao==5) {
         				n_posicao = (n_linhas * 16) + posicao;
-        				Sim_Context.fillText(tipo_funcao[funcao]+(n_posicao+15), 280,linha);
+        				Ihm_Context.fillText(tipo_funcao[funcao]+(n_posicao+15), 10,linha);
         			}
       			}
       			else  {
         			if (funcao <3) {
-        				Sim_Context.fillText(tipo_funcao[funcao]+n_linhas+'.'+((tamanho_array%16)-1), 280,linha);
+        				Ihm_Context.fillText(tipo_funcao[funcao]+n_linhas+'.'+((tamanho_array%16)-1), 10,linha);
         				n_posicao = (n_linhas * 16) + posicao;
         			}
         			if (funcao==5) {
         				n_posicao = (n_linhas * 16) + posicao;
-        				Sim_Context.fillText(tipo_funcao[funcao]+(n_posicao + (tamanho_array%16)-1), 280,linha);
+        				Ihm_Context.fillText(tipo_funcao[funcao]+(n_posicao + (tamanho_array%16)-1), 10,linha);
         			}
       			}
       			if(funcao==4) {
-        			Sim_Context.fillText(tipo_funcao[funcao]+n_linhas, 280,linha);
+        			Ihm_Context.fillText(tipo_funcao[funcao]+n_linhas, 100,linha);
         			n_posicao = (n_linhas * 4) + posicao;
       			}
-      			//if(funcao==3) {
-        		//	Sim_Context.fillText(tipo_funcao[funcao]+(n_linhas*3), 190,linha);
-				n_posicao = (n_linhas * 9) + posicao;
-			//	
-      			//}
+      			if(funcao==3) {
+        			Ihm_Context.fillText(tipo_funcao[funcao]+(n_linhas*3), 100,linha);
+				n_posicao = (n_linhas * 3) + posicao;
+				
+      			}
       			do {
         			switch (parseInt(funcao)){
         			case 0:
-        				Sim_Context.fillStyle = 'red';
-        				Sim_Context.fillText(I[n_posicao], 530-(posicao*10),linha);
+        				Ihm_Context.fillStyle = 'red';
+                                        if (I[n_posicao] != undefined) 
+        					Ihm_Context.fillText(I[n_posicao], 460-(posicao*25),linha);
         				break;
         			case 1:
-        				Sim_Context.fillStyle = 'red';
-        				Sim_Context.fillText(Q[n_posicao], 530-(posicao*10),linha);
+        				Ihm_Context.fillStyle = 'red';
+        				Ihm_Context.fillText(Q[n_posicao], 460-(posicao*25),linha);
         				break;
         			case 2:
-        				Sim_Context.fillStyle = 'red';
-        				Sim_Context.fillText(M[n_posicao], 980-(posicao*10),linha);
+        				Ihm_Context.fillStyle = 'red';
+        				Ihm_Context.fillText(M[n_posicao], 460-(posicao*25),linha);
         				break;
         			case 5:
-        				Sim_Context.fillStyle = 'red';
-        				Sim_Context.fillText(R[n_posicao], 980-(posicao*10),linha);
+        				Ihm_Context.fillStyle = 'red';
+        				Ihm_Context.fillText(R[n_posicao], 460-(posicao*25),linha);
         				break;
         			case 4:
-        				Sim_Context.fillStyle = 'red';
-        				Sim_Context.fillText(C[n_posicao], 850+(posicao*50),linha);
+        				Ihm_Context.fillStyle = 'red';
+					Ihm_Context.fillText(C[n_posicao], 200+(posicao*100),linha);
         				if (posicao >2)
         					posicao = 15;
         				break;
         			case 3:
-					if ((n_posicao%3) > 0) {
-						Sim_Context.fillStyle = 'red';
-					}
-					else {
-        					Sim_Context.fillStyle = 'blue';
-						Sim_Context.fillText(tipo_funcao[3]+parseInt(n_posicao/3),200+(posicao*30),linha);
-						Sim_Context.fillStyle = 'red';
-						posicao++;
-					}
-						
-        				Sim_Context.fillText(T[n_posicao], 200+(posicao*30),linha);
-        				if (posicao >10)
+					Ihm_Context.fillStyle = 'red';
+        				Ihm_Context.fillText(T[n_posicao], 200+(posicao*100),linha);
+        				if (posicao >1)
         					posicao = 15;
         				break;
         			default:
@@ -398,19 +402,20 @@ function Desenha_Ihm_Sim() {
       			} while((n_posicao < tamanho_array) && (posicao < 15));
 
       			if (funcao<3) {
-        			Sim_Context.fillStyle = 'green';
-        			Sim_Context.fillText(tipo_funcao[funcao]+n_linhas+'.0 - ' +tipo_funcao[funcao]+n_linhas+' = ', 530,linha);
-        			Sim_Context.fillStyle = 'red';
-        			Sim_Context.fillText(Sim_Endereco_CT(tipo_funcao[funcao]+n_linhas,0), 540,linha);
+        			Ihm_Context.fillStyle = 'green';
+        			Ihm_Context.fillText(tipo_funcao[funcao]+n_linhas+'.0 - ' +tipo_funcao[funcao]+n_linhas+' = ', 500,linha);
+        			Ihm_Context.fillStyle = 'red';
+        			Ihm_Context.fillText(Sim_Endereco_CT(tipo_funcao[funcao]+n_linhas,0), 610,linha);
       			}
       			if (funcao==5) {
-        			Sim_Context.fillStyle = 'green';
-        			Sim_Context.fillText(tipo_funcao[funcao]+(n_linhas*16), 530,linha);
+        			Ihm_Context.fillStyle = 'green';
+        			Ihm_Context.fillText(tipo_funcao[funcao]+(n_linhas*16), 500,linha);
       			}
       			linha += 15;
       			if (n_posicao >= tamanho_array)
         			break;
-    		}
+    	  	}
+	}
 }
 
 //======================================================================
