@@ -10,6 +10,7 @@ var canvas2;    //local desenho programa
 var context2;
 var canvas3;    // desenho da funcao a ser inserida
 var context3;
+var ICampo;
 document.addEventListener('mousemove', mouse_move);
 var emEdicao = 0; //0:desabilitado, 1-5: Entra funcao,tag1,end1,tag2 e end2
 var lfuncao = 0;	//funcao selecionada para entrada no ladder
@@ -61,7 +62,7 @@ function editar_ladder() {
 
 	var posicaox = parseInt((window.event.clientX-700)/60);
 	var posicaoy = parseInt(((window.event.clientY+yScroll)-5)/60);
-	var ICampo = document.getElementById('Campo');
+	ICampo = document.getElementById('Campo');
 	var CInput = document.getElementById('input_ladder');
 	var IFigura = document.getElementById('Fig');
 
@@ -235,7 +236,7 @@ function mouse_move(){
 	context3 = canvas3.getContext("2d");
 	canvas3.width = 60;
 	canvas3.height = 60;
-    var ICampo = document.getElementById('Campo');
+    	ICampo = document.getElementById('Campo');
 	var IFigura = document.getElementById('Fig');
 	var yTop = window.event.clientY + document.body.scrollTop - 20;
 	lfuncao = 0;
@@ -280,7 +281,7 @@ function mouse_move(){
 	}
 	var posicaox = parseInt((window.event.clientX-700)/60);
     var posicaoy = parseInt((yTop+15)/60);
-    ICampo.style.display = "block";
+    	ICampo.style.display = "block";
 	var ICampox = parseInt((parseInt(ICampo.style.left)-700)/60);
 	var ICampoy = parseInt((parseInt(ICampo.style.top)-5)/60);
 	if ((emEdicao > 0)  && ((ICampox != posicaox) || (ICampoy != posicaoy))){
@@ -309,7 +310,7 @@ function inicializa_array(){
 //=====================================================================================
 function entrada_input(event){
 	if (event.keyCode == 13) { //Tecla enter
-		var ICampo = document.getElementById('Campo');
+		ICampo = document.getElementById('Campo');
 		var posicaox = parseInt((parseInt(ICampo.style.left)-700)/60);
 		var posicaoy = parseInt((parseInt(ICampo.style.top)-5)/60);
 		context2.font = '9pt Arial';
