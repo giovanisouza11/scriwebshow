@@ -61,13 +61,14 @@ function Sim_Simulador_Click() {
 					if (verificaTexto(posicaox, -4*ArrayObjStatic[index_var*20+10], 'X'+index_var)==1 && verificaTexto(posicaoy, ArrayObjStatic[index_var*20+10], 'Y'+index_var)==1)
 					{
 						variavel = index_var;
-						var ICampo = document.getElementById('CampoS');
-						var CInput = document.getElementById('Sim_Input_Ladder');
+						emEdicao = 10;
+						var ICampo = document.getElementById('Campo');
+						var CInput = document.getElementById('input_ladder');
 						ICampo.style.left = " "+ArrayObjDinamic[index_var*10+3] + "px";
 						ICampo.style.top = " "+ArrayObjDinamic[index_var*10+4]  + "px";
 						ICampo.style.display = "block";
-						document.getElementById('Sim_Label_Input').innerHTML = ArrayObjStatic[index_var*20+1];
-						document.getElementById('Sim_Input_Ladder').value = Sim_Endereco_CT(ArrayObjStatic[index_var*20+1],0);
+						document.getElementById('label_input').innerHTML = ArrayObjStatic[index_var*20+1];
+						document.getElementById('input_ladder').value = Sim_Endereco_CT(ArrayObjStatic[index_var*20+1],0);
 						CInput.focus();
 					}
 				}
@@ -108,8 +109,8 @@ function Sim_Simulador_Click() {
 //=====================================================================================
 function eInputS(event) {
 	if (event.keyCode == 13) { //Tecla enter
-		var ICampo = document.getElementById('CampoS');
-		var CInput = document.getElementById('Sim_Input_Ladder');
+		var ICampo = document.getElementById('Campo');
+		var CInput = document.getElementById('input_ladder');
 		Sim_Escreve_CT(ArrayObjStatic[variavel*20+1], CInput.value, 0);
 		if(Sim_Endereco_CT(ArrayObjStatic[variavel*20+1],0) > ArrayObjStatic[variavel*20+16])
 			Sim_Escreve_CT(ArrayObjStatic[variavel*20+1],parseInt(ArrayObjStatic[variavel*20+16]),0);
@@ -120,6 +121,7 @@ function eInputS(event) {
 		ICampo.style.top = "1100px";
 		CInput.blur();
 		ICampo.style.display = "none";
+		emEdicao = 0;
 	}
 }
 
@@ -229,11 +231,11 @@ function Desenha_Ihm_Sim() {
 	var tamanho_array = 0;
 	var tipo_funcao = ['I','Q','M','T','C','R'];
 	var linha = 60;
-	Ihm_Context.lineWidth = 2;
+	Ihm_Context.lineWidth = 3;
 	Ihm_Context.fillStyle = 'white';
-  	Ihm_Context.fillRect(0, 0, 650,700);
+  	Ihm_Context.fillRect(0, 0, 650,1000);
   	Ihm_Context.fillStyle = 'black';
-  	Ihm_Context.strokeRect(1, 1, 650, 700);
+  	Ihm_Context.strokeRect(2,2, 648, 998);
   	Ihm_Context.font = '18pt Arial';
   	Ihm_Context.fillStyle = 'red';
 	Ihm_Context.fillText('Mapa de Memória', 220, 30);
@@ -246,22 +248,22 @@ function Desenha_Ihm_Sim() {
 	    	switch (parseInt(funcao)){
       		case 0:
         		Ihm_Context.fillStyle = 'black';
-        		Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillRect(10, linha-5, 100, 5);
         		Ihm_Context.fillText('ENTRADAS', 270, linha);
-        		Ihm_Context.fillRect(500, linha-5, 150, 5);
+        		Ihm_Context.fillRect(540, linha-5, 100, 5);
 			tamanho_array = I.length;
         		num_linhas = parseInt(tamanho_array / 16);
         		linha = linha + 30;
         		Ihm_Context.fillText('MSB', 10,linha);
 			Ihm_Context.fillText('Valor binário', 250,linha);
         		Ihm_Context.fillText('LSB  -  Decimal', 500,linha);
-			linha = linha + 25;
+			linha = linha + 30;
         		break;
       		case 1:
         		Ihm_Context.fillStyle = 'black';
-        		Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillRect(10, linha-5, 100, 5);
         		Ihm_Context.fillText('SAIDAS',290, linha);
-        		Ihm_Context.fillRect(500, linha-5, 150, 5);
+        		Ihm_Context.fillRect(540, linha-5, 100, 5);
 			tamanho_array = Q.length;
         		num_linhas = parseInt(tamanho_array / 16);
         		linha = linha + 30;
@@ -272,9 +274,9 @@ function Desenha_Ihm_Sim() {
         		break;
       		 case 2:
         		Ihm_Context.fillStyle = 'black';
-        		Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillRect(10, linha-5, 100, 5);
         		Ihm_Context.fillText('MEMÓRIAS', 270, linha);
-        		Ihm_Context.fillRect(500, linha-5, 150, 5);
+        		Ihm_Context.fillRect(540, linha-5, 100, 5);
         		tamanho_array = M.length;
         		num_linhas = parseInt(tamanho_array / 16);
         		linha = linha + 30;
@@ -286,38 +288,38 @@ function Desenha_Ihm_Sim() {
         		break;
 		case 3:
         		Ihm_Context.fillStyle = 'black';
-                        Ihm_Context.fillRect(10, linha-5, 160, 5);
+                        Ihm_Context.fillRect(10, linha-5, 100, 5);
         		Ihm_Context.fillText('TIMERS', 290, linha);
-       			Ihm_Context.fillRect(500, linha-5, 150, 5);
+       			Ihm_Context.fillRect(540, linha-5, 100, 5);
 			tamanho_array = T.length;
-        		num_linhas = parseInt(tamanho_array / 9);
+        		num_linhas = parseInt(tamanho_array / 3);
                         linha = linha + 30;
         		Ihm_Context.fillText('Tem', 100,linha);
         		Ihm_Context.fillText('bit', 200,linha);
-        		Ihm_Context.fillText('PV', 300,linha);
-        		Ihm_Context.fillText('SP', 400,linha);
+        		Ihm_Context.fillText('PV', 275,linha);
+        		Ihm_Context.fillText('SP', 350,linha);
         		linha = linha + 30;
                         break;
 		case 4:
         		Ihm_Context.fillStyle = 'black';
-        		Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillRect(10, linha-5, 100, 5);
         		Ihm_Context.fillText('CONTADORES', 265, linha);
-        		Ihm_Context.fillRect(500, linha-5, 150, 5);
+        		Ihm_Context.fillRect(540, linha-5, 100, 5);
         		tamanho_array = C.length;
         		num_linhas = parseInt(tamanho_array / 4);
         		linha = linha + 30;
         		Ihm_Context.fillText('Cont', 100,linha);
         		Ihm_Context.fillText('bit', 200,linha);
-        		Ihm_Context.fillText('PV', 300,linha);
-        		Ihm_Context.fillText('SP', 400,linha);
-        		Ihm_Context.fillText('AUX', 500,linha);
+        		Ihm_Context.fillText('PV', 275,linha);
+        		Ihm_Context.fillText('SP', 350,linha);
+        		Ihm_Context.fillText('AUX', 425,linha);
         		linha = linha + 30;
         		break;
       		case 5:
         		Ihm_Context.fillStyle = 'black';
-        		Ihm_Context.fillRect(10, linha-5, 160, 5);
+        		Ihm_Context.fillRect(10, linha-5, 100, 5);
         		Ihm_Context.fillText('RAMAIS', 290, linha);
-        		Ihm_Context.fillRect(500, linha-5, 150, 5);
+        		Ihm_Context.fillRect(540, linha-5, 100, 5);
         		tamanho_array = R.length;
         		num_linhas = parseInt(tamanho_array / 16);
         		linha = linha + 30;
@@ -359,7 +361,7 @@ function Desenha_Ihm_Sim() {
         			n_posicao = (n_linhas * 4) + posicao;
       			}
       			if(funcao==3) {
-        			Ihm_Context.fillText(tipo_funcao[funcao]+(n_linhas*3), 100,linha);
+        			Ihm_Context.fillText(tipo_funcao[funcao]+n_linhas, 100,linha);
 				n_posicao = (n_linhas * 3) + posicao;
 				
       			}
@@ -384,13 +386,13 @@ function Desenha_Ihm_Sim() {
         				break;
         			case 4:
         				Ihm_Context.fillStyle = 'red';
-					Ihm_Context.fillText(C[n_posicao], 200+(posicao*100),linha);
+					Ihm_Context.fillText(C[n_posicao], 200+(posicao*75),linha);
         				if (posicao >2)
         					posicao = 15;
         				break;
         			case 3:
 					Ihm_Context.fillStyle = 'red';
-        				Ihm_Context.fillText(T[n_posicao], 200+(posicao*100),linha);
+        				Ihm_Context.fillText(T[n_posicao], 200+(posicao*75),linha);
         				if (posicao >1)
         					posicao = 15;
         				break;
@@ -411,7 +413,7 @@ function Desenha_Ihm_Sim() {
         			Ihm_Context.fillStyle = 'green';
         			Ihm_Context.fillText(tipo_funcao[funcao]+(n_linhas*16), 500,linha);
       			}
-      			linha += 15;
+      			linha += 20;
       			if (n_posicao >= tamanho_array)
         			break;
     	  	}
