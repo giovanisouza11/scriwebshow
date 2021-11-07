@@ -17,7 +17,7 @@ function draw_eletrico() {
 	Ihm_Canvas = document.getElementById("tela8");
 	Ihm_Context =  Ihm_Canvas.getContext("2d");
     	Ihm_Canvas.width = 700;
-    	Ihm_Canvas.height = 700;
+    	Ihm_Canvas.height = 1000;
 	Ihm_Canvas.top = 700;
     	//Canvas eletrico
     	canvas = document.getElementById("tela1");
