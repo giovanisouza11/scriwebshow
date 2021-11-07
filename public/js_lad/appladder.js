@@ -280,13 +280,13 @@ function mouse_move(){
 		IFigura.style.display = "none";
 	}
 	var posicaox = parseInt((window.event.clientX-700)/60);
-    var posicaoy = parseInt((yTop+15)/60);
+    	var posicaoy = parseInt((yTop+15)/60);
     	ICampo.style.display = "block";
 	var ICampox = parseInt((parseInt(ICampo.style.left)-700)/60);
 	var ICampoy = parseInt((parseInt(ICampo.style.top)-5)/60);
 	if ((emEdicao > 0)  && ((ICampox != posicaox) || (ICampoy != posicaoy))){
 		ICampo.style.display = "none";
-		ICampo.style.top = "680px";
+		ICampo.style.top = "1100px";
 		ICampo.style.left = "100px";
 		var CInput = document.getElementById('input_ladder');
 		document.getElementById('input_ladder').value = "";
