@@ -327,7 +327,7 @@ function entrada_input(event){
 			context2.fillStyle = 'blue';
 			context2.fillText(tag, 98+(posicaox*60), (55+(posicaoy)*60));
 			ICampo.style.display = "none";
-			ICampo.style.top = "680px";
+			ICampo.style.top = "1100px";
 			ICampo.style.left = "100px";
 			CInput.blur();
 			emEdicao = 0;
@@ -365,7 +365,7 @@ function entrada_input(event){
 					context2.fillStyle = 'blue';
 					context2.fillText(tag, 98+(posicaox*60), (55+(posicaoy)*60));
 					ICampo.style.display = "none";
-					ICampo.style.top = "680px";
+					ICampo.style.top = "1100px";
 					ICampo.style.left = "100px";
 					CInput.blur();
 					emEdicao = 0;
@@ -460,7 +460,7 @@ function entrada_input(event){
 					context2.fillStyle = 'blue';
 					context2.fillText(tag, 75+(posicaox*60), (25+(posicaoy)*60));
 					ICampo.style.display = "none";	
-					ICampo.style.top = "680px";
+					ICampo.style.top = "1100px";
 					ICampo.style.left = "100px";
 					CInput.blur();
 					emEdicao = 0;
